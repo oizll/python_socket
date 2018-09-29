@@ -1,0 +1,10 @@
+import socket
+sever_socket=socket.socket(socket.AF_INET,socket.SSOCK_STREAM)
+sever_socket.bind(('127.0.0.1',7070))
+sever_socket.listen(5)
+con,add=sever_socket.accept()
+con.recv(1024)
+con.send(bytes('HTTP/1.1 200 OK\r\n\r\n','utf-8'))
+con.send(bytes('hello world','utf-8'))
+con.close()
+sever.socket.close()
